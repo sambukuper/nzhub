@@ -41,9 +41,13 @@ case "$(uname -s)" in
   *) ZIPALIGN="$BT/zipalign.exe"; APKSIGNER="$BT/apksigner.bat" ;;
 esac
 
-echo "== fetching r8 $R8_VERSION"
-if [ ! -f "$WORK/r8.jar" ]; then
-  curl -fsSL -o "$WORK/r8.jar" \
+echo "== r8"
+if [ -f "$TOOLS/r8.jar" ]; then
+  R8="$TOOLS/r8.jar"
+  echo "   using tools/r8.jar"
+else
+  R8="$WORK/r8.jar"
+  curl -fsSL -o "$R8" \
     "https://dl.google.com/dl/android/maven2/com/android/tools/r8/$R8_VERSION/r8-$R8_VERSION.jar"
 fi
 
@@ -55,7 +59,7 @@ javac -source 8 -target 8 -nowarn -bootclasspath "$ANDROID_JAR" \
   -d "$WORK/inject_out" "@$WORK/sources.txt" 2>/dev/null
 find "$WORK/inject_out/com/nzboost" -name "*.class" > "$WORK/classes.txt"
 mapfile -t CLASSES < "$WORK/classes.txt"
-java -cp "$WORK/r8.jar" com.android.tools.r8.D8 --min-api 24 --release \
+java -cp "$R8" com.android.tools.r8.D8 --min-api 24 --release \
   --output "$WORK/inject_dex" "${CLASSES[@]}"
 cp "$WORK/inject_dex/classes.dex" "$WORK/classes4.dex"
 echo "   classes4.dex: $(wc -c < "$WORK/classes4.dex") bytes"
