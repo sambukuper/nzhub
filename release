@@ -1,0 +1,36 @@
+{
+  "app": "nzhub_android",
+  "ret": 1,
+  "msg": "ok",
+  "data": "1.0.0",
+  "link": "https://github.com/sambukuper/nzhub/releases/latest/download/NZHub-latest.apk",
+  "details": "- Fork of Happ 4.9.0 rebuilt as NZHub\n- 12 colour themes plus System (auto)\n- Updates come from this repository's GitHub Releases\n- Sentry, Firebase and Happ telemetry removed",
+  "filenum": 1,
+  "apk": {
+    "block": [],
+    "beta": {
+      "version": "1.0.0",
+      "link": "https://github.com/sambukuper/nzhub/releases/latest/download/NZHub-latest.apk",
+      "details": "See the release notes on GitHub",
+      "update": {
+        "nowarn": "0.0.9",
+        "warnonce": "0.0.9",
+        "warnweek": "0.0.9",
+        "warnalways": "0.0.9",
+        "updateonly": "0.0.1"
+      }
+    },
+    "stable": {
+      "version": "1.0.0",
+      "link": "https://github.com/sambukuper/nzhub/releases/latest/download/NZHub-latest.apk",
+      "details": "- Fork of Happ 4.9.0 rebuilt as NZHub\n- 12 colour themes plus System (auto)\n- Updates come from this repository's GitHub Releases\n- Sentry, Firebase and Happ telemetry removed",
+      "update": {
+        "nowarn": "0.0.9",
+        "warnonce": "0.0.9",
+        "warnweek": "0.0.9",
+        "warnalways": "0.0.9",
+        "updateonly": "0.0.1"
+      }
+    }
+  }
+}
