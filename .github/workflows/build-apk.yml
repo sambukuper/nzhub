@@ -53,6 +53,7 @@ jobs:
           cp NZHub.apk "NZHub-$VERSION.apk"
           cp NZHub.apk NZHub-latest.apk
           sha256sum NZHub-latest.apk > NZHub-latest.apk.sha256
+          sha256sum "NZHub-$VERSION.apk" > "NZHub-$VERSION.apk.sha256"
           gh release create "$GITHUB_REF_NAME" \
             --repo "$GITHUB_REPOSITORY" \
             --title "NZHub $VERSION" \
